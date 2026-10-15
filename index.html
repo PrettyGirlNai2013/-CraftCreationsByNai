@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CraftyCreationsByNai 🎀</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff8fb;
+      color: #743c57;
+      text-align: center;
+    }
+    header {
+      background: #f7bfd5;
+      padding: 22px 10px;
+    }
+    h1 {
+      font-family: Georgia, serif;
+      font-size: 32px;
+      margin: 8px;
+    }
+    nav { padding: 15px; }
+    nav a {
+      color: #743c57;
+      margin: 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .hero {
+      background: #ffebf3;
+      padding: 50px 18px;
+    }
+    .hero h2 {
+      font-family: Georgia, serif;
+      font-size: 38px;
+    }
+    .button {
+      display: inline-block;
+      background: #a94f78;
+      color: white;
+      padding: 13px 23px;
+      border-radius: 25px;
+      text-decoration: none;
+      margin-top: 15px;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 18px;
+      padding: 25px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .product {
+      background: white;
+      padding: 20px;
+      border: 1px solid #f1ccdc;
+      border-radius: 16px;
+    }
+    .emoji { font-size: 65px; }
+    .product button {
+      background: #a94f78;
+      color: white;
+      border: none;
+      padding: 11px 16px;
+      border-radius: 20px;
+    }
+    footer {
+      background: #f7bfd5;
+      padding: 25px;
+      margin-top: 35px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CraftyCreationsByNai 🎀</h1>
+    <p>♡ Cute creations, made with love ♡</p>
+  </header>
+
+  <nav>
+    <a href="#shop">Shop</a>
+    <a href="#about">About Me</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section class="hero">
+    <p>WELCOME TO MY LITTLE SHOP</p>
+    <h2>Handmade with love 💗</h2>
+    <p>Bracelets, charms and keychains to make your day extra cute!</p>
+    <a href="#shop" class="button">Shop my creations ♡</a>
+  </section>
+
+  <section id="shop">
+    <h2>♡ The Cute Collection ♡</h2>
+    <p>Find your new favorite accessory!</p>
+
+    <div class="products">
+      <div class="product">
+        <div class="emoji">🎀</div>
+        <h3>Pink Sweetheart Bracelet</h3>
+        <p>A cute pink bracelet for every day.</p>
+        <strong>$8.00</strong>
+        <p><button onclick="addToBag('Pink Sweetheart Bracelet',8)">Add to bag ♡</button></p>
+      </div>
+
+      <div class="product">
+        <div class="emoji">🤍</div>
+        <h3>Cloud Nine Bracelet</h3>
+        <p>A dreamy white beaded bracelet.</p>
+        <strong>$7.00</strong>
+        <p><button onclick="addToBag('Cloud Nine Bracelet',7)">Add to bag ♡</button></p>
+      </div>
+
+      <div class="product">
+        <div class="emoji">💖</div>
+        <h3>Heart Charm</h3>
+        <p>A little heart for your favorite bag.</p>
+        <strong>$5.00</strong>
+        <p><button onclick="addToBag('Heart Charm',5)">Add to bag ♡</button></p>
+      </div>
+
+      <div class="product">
+        <div class="emoji">🦋</div>
+        <h3>Butterfly Keychain</h3>
+        <p>A sweet accessory for your keys.</p>
+        <strong>$8.00</strong>
+        <p><button onclick="addToBag('Butterfly Keychain',8)">Add to bag ♡</button></p>
+      </div>
+    </div>
+    <h3 id="bag">🛍️ Your bag: <span id="count">0</span> items</h3>
+    <p id="message">Your cute finds will show up here!</p>
+    <p id="total">Total: $0.00</p>
+  </section>
+
+  <section id="about">
+    <h2>♡ About My Shop ♡</h2>
+    <p>Welcome to CraftyCreationsByNai, where every little creation is made with love!</p>
+  </section>
+
+  <section id="contact">
+    <h2>Let's Be Friends 💕</h2>
+    <p>Questions? Add your business email or social media link here.</p>
+  </section>
+
+  <footer>
+    <strong>CraftyCreationsByNai 🎀</strong>
+    <p>Thank you for supporting my little shop! ♡</p>
+    <p>© 2026 CraftyCreationsByNai</p>
+  </footer>
+
+  <script>
+    const bag = [];
+
+    function addToBag(name, price) {
+      bag.push({name, price});
+      document.getElementById('count').textContent = bag.length;
+      document.getElementById('message').textContent =
+        bag.map(item => item.name).join(', ');
+      const total = bag.reduce((sum, item) => sum + item.price, 0);
+      document.getElementById('total').textContent =
+        'Total: $' + total.toFixed(2);
+    }
+  </script>
+</body>
+</html>
